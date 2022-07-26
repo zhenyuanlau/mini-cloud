@@ -1,6 +1,6 @@
 Q := @
 
-.PHONY: multipass terraform open
+.PHONY: multipass terraform open clean
 
 multipass:
 	$(Q) multipass launch docker
@@ -16,3 +16,5 @@ terraform:
 
 open:
 	$(Q) open http://$$(multipass exec docker -- hostname -I | awk '{print $$1}'):8080
+clean:
+	$(Q) rm -fr terraform.tfstate

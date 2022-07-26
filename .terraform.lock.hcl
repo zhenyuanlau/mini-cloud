@@ -1,23 +1,25 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/kreuzwerker/docker" {
-  version     = "2.15.0"
-  constraints = "~> 2.15.0"
+provider "registry.terraform.io/larstobi/multipass" {
+  version     = "1.3.1"
+  constraints = "1.3.1"
   hashes = [
-    "h1:V4SqgWd0+DqHYadZ/27lh9MeVStxzQGUBW1W+C4MVP0=",
-    "zh:0241e5c7b66c14aa54e367dfe380fbde8388d3254cbe8a70717c12f71897e82b",
-    "zh:0f162f0a01ffe9eec32e78dfc2a5b05a373230c41f041439efa3f4b68903fdcb",
-    "zh:1c222c1425fbb0367154bcb8e4d87b19d6eae133fbb341f73102fa3b300f34bf",
-    "zh:679206433e31d8fa69d95167af6d2cd762218e89811b735ee20bd8da19f97854",
-    "zh:a16baab045bc7a709a9767816304cc5548aa2ee0b72c0eee49e3826e6a46a3fd",
-    "zh:a29c4e304a6a7faf5b651a61a91a1aa2e837591cff049fbe1c747b6319e43956",
-    "zh:bed7a69dbb9a024aecfac840ca2ac2f1527062f3d9c8c718e4e81d464b5ad329",
-    "zh:c22aa10806de216b6aa0b36a2c1114a9fdaa5b47925aaad3333de3ce24cc52c9",
-    "zh:d034295663d8a39035fd6fdf0488b72544b13f48acaee797af967343248676f8",
-    "zh:d9001dfeac0db1799d8ab9d04be090522529baae0dba7f7e82b71f2168f05582",
-    "zh:d9f3eb7ef8f256eb9148d72bd4a00e34f3be5570484598e26b603cbdc5eed923",
-    "zh:ef573f1e0f000127fa9f569c8ee320f03ba1d302a6fbf9aac8300efa6fc6f4b2",
-    "zh:ef7e246b4205202161b4119c10a1282f74243e029508184132731f9f6f6d9f4c",
+    "h1:tW8Wkn2baiOJpYyn7HAXiJWMQysvqr1eEkwNIm3ktpA=",
+    "zh:06fb104601ab80fd050a7e8c1ce78a2504cdf83921adea8053a96d288e7b6e85",
+    "zh:074691a42460ee8749f86ba65e31dd8ec706a5b32326193a94afb00ed363034c",
+    "zh:1b6fb83f801538eae2d5042337bc4123c9b7d399e2fa95a5148cb9e3266405d5",
+    "zh:22010788341105531b71dbce15ddeac7d4c53725a4acc7d42ac65942c53e2503",
+    "zh:2562de3f92bf3a360836a92ab23e958eb5db9b2e85c96ef7060e59e8243b29da",
+    "zh:2a880f2b968bfed08c1f23a509916ff285ced9a2379d823e51ba3a271f03bffd",
+    "zh:2f7174f0041f655c9da06bd959a1564014cc854bf66fb1fa8bd0ddd6826cebc7",
+    "zh:3e6dd39e43999dcec6ada2e589997eb11ea76792354f3edd49826cac4f38b4ee",
+    "zh:525f76346f8c06e94eab5b40d605eea5af3a60aa84d488a33f8fa54c6ef0b668",
+    "zh:6a6e31d43c7935c339521da1c2ff95f5d2d9a49678ec7a63ad2da8d9f0b0cddd",
+    "zh:d28dd84c75db9a5cca02cfc12202b08ea941272127cd06cc12d95ac7bb915c03",
+    "zh:e88ee5570ed99b66af8dbd8e7ff44a3d4bf54bf6a5873b1090e259e47888303f",
+    "zh:f809ab383cca0a5f83072981c64208cbd7fa67e986a86ee02dd2c82333221e32",
+    "zh:f900f840d44e6afa692c1d9a2af02c858161ff0553ce95f7f00176ca80906455",
+    "zh:fad34fbb45537be035ee9d8261b78fd2b3d71499c2697616e29e3b1de3b05173",
   ]
 }
