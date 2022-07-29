@@ -18,7 +18,8 @@ Q := @
 # 	$(Q) open http://$$(multipass exec docker -- hostname -I | awk '{print $$1}'):8080
 
 localstack:
-	$(Q) docker run --rm -it -p 0.0.0.0:4566:4566 -p 4510-4559:4510-4559 localstack/localstack
+	$(Q) docker run --rm -it -p 0.0.0.0:4566:4566 -p 4510-4559:4510-4559 -e DEBUG=1 localstack/localstack
+
 openstack:
 	$(Q) open http://$$(multipass exec docker -- hostname -I | awk '{print $$1}'):4566/health
 

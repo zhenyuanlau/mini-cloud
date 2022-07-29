@@ -43,4 +43,5 @@ six==1.16.0
 stevedore==4.0.0
 tabulate==0.8.10
 tailer==0.4.1
+terraform-local==0.2
 urllib3==1.26.11
