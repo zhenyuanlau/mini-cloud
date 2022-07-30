@@ -16,36 +16,56 @@ provider "aws" {
   skip_requesting_account_id  = true
 
   endpoints {
-    acm            = "http://192.168.205.4:4566"
-    apigateway     = "http://192.168.205.4:4566"
-    cloudformation = "http://192.168.205.4:4566"
-    cloudwatch     = "http://192.168.205.4:4566"
-    dynamodb       = "http://192.168.205.4:4566"
-    ec2            = "http://192.168.205.4:4566"
-    es             = "http://192.168.205.4:4566"
-    firehose       = "http://192.168.205.4:4566"
-    iam            = "http://192.168.205.4:4566"
-    kinesis        = "http://192.168.205.4:4566"
-    lambda         = "http://192.168.205.4:4566"
-    rds            = "http://192.168.205.4:4566"
-    redshift       = "http://192.168.205.4:4566"
-    route53        = "http://192.168.205.4:4566"
-    s3             = "http://192.168.205.4:4566"
-    secretsmanager = "http://192.168.205.4:4566"
-    ses            = "http://192.168.205.4:4566"
-    sns            = "http://192.168.205.4:4566"
-    sqs            = "http://192.168.205.4:4566"
-    ssm            = "http://192.168.205.4:4566"
-    stepfunctions  = "http://192.168.205.4:4566"
-    sts            = "http://192.168.205.4:4566"
+    acm            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    apigateway     = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    cloudformation = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    cloudwatch     = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    dynamodb       = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    ec2            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    es             = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    firehose       = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    iam            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    kinesis        = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    lambda         = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    rds            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    redshift       = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    route53        = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    s3             = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    secretsmanager = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    ses            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    sns            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    sqs            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    ssm            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    stepfunctions  = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
+    sts            = "http://${var.localstack_edge_host}:${var.localstack_edge_port}"
   }
 }
 
-# resource "aws_s3_bucket" "test-bucket" {
-#   bucket = "my-bucket"
-# }
+resource "aws_security_group" "instance" {
+  name = "terraform-example-instance"
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 
 resource "aws_instance" "example" {
-  ami           = "ami-04681a1dbd79675a5"
-  instance_type = "t1.micro"
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.instance.id]
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p 8080 &
+              EOF
+
+  tags = {
+    Name = "terraform-example"
+  }
+
 }
