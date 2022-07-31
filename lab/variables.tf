@@ -7,11 +7,11 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "localstack_edge_host" {
+variable "localstack_host" {
   # default = "192.168.205.4"
   default = "127.0.0.1"
 }
 
-variable "localstack_edge_port" {
+variable "localstack_port" {
   default = 4566
 }

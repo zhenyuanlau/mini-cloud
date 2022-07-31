@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "bin": {
+    "app": "bin/app.js"
+  },
+  "scripts": {
+    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
+    "cdk": "cdk",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.34.2",
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.34.2",
+    "aws-sdk": "^2.1185.0",
+    "constructs": "^10.0.0"
+  }
+}
